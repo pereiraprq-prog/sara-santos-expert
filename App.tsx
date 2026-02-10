@@ -1,18 +1,16 @@
 
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { 
   MessageCircle, 
   Instagram, 
   CheckCircle2, 
   MapPin, 
   Award, 
-  Coffee, 
   ChevronRight,
   ShieldCheck,
   Star,
   Users,
-  Eye,
-  BookOpen
+  Eye
 } from 'lucide-react';
 import { EXPERT, IMAGES } from './constants';
 import { Lightbox } from './components/Lightbox';
@@ -109,7 +107,7 @@ const App: React.FC = () => {
             <ul className="space-y-5">
               {[
                 "Especialista em design estratégico",
-                "Certificações nacionais e internacionais",
+                "Certificações nacionais",
                 "Foco total na naturalidade do olhar",
                 "Atendimento exclusivo e humanizado"
               ].map((item, i) => (
@@ -262,82 +260,29 @@ const App: React.FC = () => {
         </div>
       </section>
 
-      {/* 7. MAIS PROVAS (Cursos, Certificados e Espaço) */}
+      {/* 7. MAIS PROVAS (Certificados) */}
       <section className="py-24 px-6 bg-gray-50">
-        <div className="max-w-6xl mx-auto space-y-32">
-          
-          {/* Cursos e Treinamentos */}
-          <div>
-            <div className="flex flex-col md:flex-row md:items-end gap-4 mb-12">
-              <div className="p-4 bg-white rounded-2xl shadow-sm inline-block">
-                <BookOpen className="text-gold" size={40} />
-              </div>
-              <div className="text-left">
-                <h2 className="text-3xl font-bold text-gray-900">Expertise que Transforma</h2>
-                <p className="text-gray-500 text-lg font-light">Além de atender, capacito novas profissionais na área.</p>
-              </div>
+        <div className="max-w-6xl mx-auto">
+          <div className="flex flex-col md:flex-row md:items-end gap-4 mb-12">
+            <div className="p-4 bg-white rounded-2xl shadow-sm inline-block">
+              <Award className="text-gold" size={40} />
             </div>
-            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
-              {IMAGES.courses.map((url, i) => (
-                <div 
-                  key={i} 
-                  className="aspect-square overflow-hidden rounded-2xl cursor-pointer group shadow-sm border border-white transition-all hover:shadow-xl"
-                  onClick={() => setSelectedImage(url)}
-                >
-                  <img src={url} alt={`Curso ${i+1}`} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
-                </div>
-              ))}
+            <div className="text-left">
+              <h2 className="text-3xl font-bold text-gray-900">Domínio Técnico</h2>
+              <p className="text-gray-500 text-lg font-light">Currículo sólido construído com as melhores escolas.</p>
             </div>
           </div>
-
-          {/* Certificados */}
-          <div>
-            <div className="flex flex-col md:flex-row md:items-end gap-4 mb-12">
-              <div className="p-4 bg-white rounded-2xl shadow-sm inline-block">
-                <Award className="text-gold" size={40} />
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
+            {IMAGES.certificates.map((url, i) => (
+              <div 
+                key={i} 
+                className="aspect-[3/4] overflow-hidden rounded-2xl cursor-pointer group shadow-sm border border-white transition-all hover:shadow-xl"
+                onClick={() => setSelectedImage(url)}
+              >
+                <img src={url} alt={`Certificado ${i+1}`} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
               </div>
-              <div className="text-left">
-                <h2 className="text-3xl font-bold text-gray-900">Domínio Técnico</h2>
-                <p className="text-gray-500 text-lg font-light">Currículo sólido construído com as melhores escolas.</p>
-              </div>
-            </div>
-            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
-              {IMAGES.certificates.map((url, i) => (
-                <div 
-                  key={i} 
-                  className="aspect-[3/4] overflow-hidden rounded-2xl cursor-pointer group shadow-sm border border-white transition-all hover:shadow-xl"
-                  onClick={() => setSelectedImage(url)}
-                >
-                  <img src={url} alt={`Certificado ${i+1}`} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
-                </div>
-              ))}
-            </div>
+            ))}
           </div>
-
-          {/* Espaço Coffee */}
-          <div>
-            <div className="flex flex-col md:flex-row md:items-end gap-4 mb-12">
-              <div className="p-4 bg-white rounded-2xl shadow-sm inline-block">
-                <Coffee className="text-gold" size={40} />
-              </div>
-              <div className="text-left">
-                <h2 className="text-3xl font-bold text-gray-900">O Studio</h2>
-                <p className="text-gray-500 text-lg font-light">Onde a técnica de elite encontra o acolhimento.</p>
-              </div>
-            </div>
-            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
-              {IMAGES.coffee.map((url, i) => (
-                <div 
-                  key={i} 
-                  className="aspect-square overflow-hidden rounded-2xl cursor-pointer group shadow-sm border border-white transition-all hover:shadow-xl"
-                  onClick={() => setSelectedImage(url)}
-                >
-                  <img src={url} alt={`Espaço ${i+1}`} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
-                </div>
-              ))}
-            </div>
-          </div>
-
         </div>
       </section>
 
